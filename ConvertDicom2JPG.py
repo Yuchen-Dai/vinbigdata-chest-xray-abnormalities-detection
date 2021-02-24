@@ -5,7 +5,7 @@ import glob
 from PIL import Image
 
 import matplotlib.pyplot as plt
-%matplotlib inline
+
 
 
 def read_xray(path, voi_lut=True, fix_monochrome=True):
@@ -30,6 +30,8 @@ def read_xray(path, voi_lut=True, fix_monochrome=True):
 if __name__ == '__main__':
     files = glob.glob(r'train/*.dicom')
     for f in files:
+
         img = read_xray(f)
         im = Image.fromarray(img)
-        im.save("data/{f[:-6]}.jpg")
+        im.save(f"data/{f[:-6]}.jpg")
+        
