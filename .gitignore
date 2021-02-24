@@ -1,3 +1,5 @@
 
 *.dicom
 *.zip
+*.iml
+*.xml
