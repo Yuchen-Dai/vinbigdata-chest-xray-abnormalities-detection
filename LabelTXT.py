@@ -17,9 +17,9 @@ with open(inputFile,'r') as data:
    for x in csv.reader(data):
        tempDict = {}
        if x[0] in labelDict:
-           labelDict[x[0]].append([x[4],x[6],x[5],x[7],x[2]])
+           labelDict[x[0]].append([x[4],x[5],x[6],x[7],x[2]])
        else:
-           labelDict[x[0]] =[[x[4],x[6],x[5],x[7],x[2]]]
+           labelDict[x[0]] =[[x[4],x[5],x[6],x[7],x[2]]]
 
 for key,value in labelDict.items():
     result = key + ' '
