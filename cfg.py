@@ -18,14 +18,14 @@ _BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 Cfg = EasyDict()
 
-Cfg.use_darknet_cfg = True
+Cfg.use_darknet_cfg = False
 Cfg.cfgfile = os.path.join(_BASE_DIR, 'cfg', 'yolov4.cfg')
 
-Cfg.batch = 64
-Cfg.subdivisions = 16
+Cfg.batch = 2
+Cfg.subdivisions = 1
 Cfg.width = 608
 Cfg.height = 608
-Cfg.channels = 3
+Cfg.channels = 1
 Cfg.momentum = 0.949
 Cfg.decay = 0.0005
 Cfg.angle = 0
@@ -45,7 +45,7 @@ Cfg.mosaic = 1
 
 Cfg.letter_box = 0
 Cfg.jitter = 0.2
-Cfg.classes = 80
+Cfg.classes = 14
 Cfg.track = 0
 Cfg.w = Cfg.width
 Cfg.h = Cfg.height
@@ -53,7 +53,7 @@ Cfg.flip = 1
 Cfg.blur = 0
 Cfg.gaussian = 0
 Cfg.boxes = 60  # box num
-Cfg.TRAIN_EPOCHS = 300
+Cfg.TRAIN_EPOCHS = 1
 Cfg.train_label = os.path.join(_BASE_DIR, 'data', 'train.txt')
 Cfg.val_label = os.path.join(_BASE_DIR, 'data' ,'val.txt')
 Cfg.TRAIN_OPTIMIZER = 'adam'

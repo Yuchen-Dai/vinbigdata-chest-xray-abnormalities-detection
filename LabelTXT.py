@@ -10,7 +10,7 @@ classes = ["Aortic enlargement","Atelectasis","Calcification","Cardiomegaly","Co
            "Pleural thickening", "Pneumothorax","Pulmonary fibrosis"]
 
 inputFile = "train.csv"
-outputFile = open("label.txt","w") 
+outputFile = open("train.txt","w") 
 
 labelDict = {}
 with open(inputFile,'r') as data: 
@@ -28,4 +28,4 @@ for key,value in labelDict.items():
         result += ' '
     result += '\n'
     outputFile.write(result)
-    
+outputFile.close()

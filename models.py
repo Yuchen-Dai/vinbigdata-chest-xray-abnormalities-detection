@@ -51,9 +51,9 @@ class Conv_Bn_Activation(nn.Module):
         if activation == "mish":
             self.conv.append(Mish())
         elif activation == "relu":
-            self.conv.append(nn.ReLU(inplace=True))
+            self.conv.append(nn.ReLU(inplace=False))
         elif activation == "leaky":
-            self.conv.append(nn.LeakyReLU(0.1, inplace=True))
+            self.conv.append(nn.LeakyReLU(0.1, inplace=False))
         elif activation == "linear":
             pass
         else:

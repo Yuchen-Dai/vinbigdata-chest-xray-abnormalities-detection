@@ -408,6 +408,8 @@ class Yolo_dataset(Dataset):
         target['iscrowd'] = torch.zeros((num_objs,), dtype=torch.int64)
         return img, target
 
+GLOBAL_IMG_ID_DICT = {}
+GLOBAL_IMG_ID = 0
 
 def get_image_id(filename:str) -> int:
     """
@@ -423,11 +425,16 @@ def get_image_id(filename:str) -> int:
     >>> no = f"{int(no):04d}"
     >>> return int(lv+no)
     """
-    raise NotImplementedError("Create your own 'get_image_id' function")
-    lv, no = os.path.splitext(os.path.basename(filename))[0].split("_")
-    lv = lv.replace("level", "")
-    no = f"{int(no):04d}"
-    return int(lv+no)
+    global GLOBAL_IMG_ID_DICT, GLOBAL_IMG_ID
+    if filename not in GLOBAL_IMG_ID_DICT: 
+        GLOBAL_IMG_ID_DICT[filename] = GLOBAL_IMG_ID
+        GLOBAL_IMG_ID+=1
+    return GLOBAL_IMG_ID_DICT[filename]
+    # raise NotImplementedError("Create your own 'get_image_id' function")
+    # lv, no = os.path.splitext(os.path.basename(filename))[0].split("_")
+    # lv = lv.replace("level", "")
+    # no = f"{int(no):04d}"
+    # return int(lv+no)
 
 
 if __name__ == "__main__":
